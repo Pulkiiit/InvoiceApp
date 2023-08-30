@@ -60,7 +60,6 @@ const fillData = async (req,res) => {
                     items : itemList[i]
                 });
             }
-            console.log(idArr.length, nameArr.length, dateArr.length);
         }
     });
 }
