@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <script href="script.js"></script>
+    <script type="text/javascript" src=" papaparse.min.js"></script>
+    <title>Mart</title>
+</head>
+<body>
+    <section class="left">
+        <h3>History</h3>
+    </section>
+    <section class="right">
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" id="csv" name="csv">
+            <input type="submit">
+        </form>
+        <div clas="main">
+            <table>
+                <thead></thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </section>
+</body>
+</html>
