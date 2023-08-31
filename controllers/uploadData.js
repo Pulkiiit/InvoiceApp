@@ -1,6 +1,8 @@
 const papa = require('papaparse');
 const fs = require('fs'); 
 const Bill = require('../models/billing');
+const ejs = require('ejs');
+const path = require('path');
 
 const fillData = async (req,res) => {
     //console.log(req.file);
@@ -42,7 +44,7 @@ const fillData = async (req,res) => {
                     temp.price = s[i][j][5];
                     tempArray.push(temp);
                 }
-                console.log(tempArray);
+                //console.log(tempArray);
                 itemList.push(tempArray);
             }
             // console.log(itemList);
@@ -60,7 +62,7 @@ const fillData = async (req,res) => {
                     items : itemList[i]
                 });
             }
-            res.render();
+            res.render(path.join(__dirname,'..','views','index.ejs'));
         }
     });
 }

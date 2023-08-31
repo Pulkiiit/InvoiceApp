@@ -16,6 +16,7 @@ connectDB();
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.set('view engine', 'ejs');
 
 //routes
 app.use('/', upload.single('csv'), require('./routes/root'));
