@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const papa = require('papaparse');
 const connectDB = require('./config/dbConn');
 const multer = require('multer');
-const upload = multer({ dest: 'uploads/' })
+const upload = multer({ dest: 'uploads/' });
 
 const PORT = process.env.PORT;
 
@@ -17,6 +17,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.set('view engine', 'ejs');
+app.set('views', 'views');
 
 //routes
 app.use('/', upload.single('csv'), require('./routes/root'));
