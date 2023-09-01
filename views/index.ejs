@@ -19,6 +19,24 @@
         </form>
         <div clas="main">
             <h2>Upload File to view</h2>
+            <% if (name && order && price) { %>
+             <table>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Customer Name</th>
+                    <th>Total Price</th>
+                    <th>Invoice</th>
+                </tr>
+                <% for( let i = 0; i < order.length; i++ ) { %>
+                <tr>
+                    <td><% order[i] %></td>
+                    <td><% name[i] %></td>
+                    <td><% price[i] %></td>
+                    <td><button>View</button></td>
+                </tr>
+                <% } %>
+             </table>
+            <% } %>
         </div>
     </section>
 </body>
