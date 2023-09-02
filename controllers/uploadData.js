@@ -5,7 +5,7 @@ const ejs = require('ejs');
 const path = require('path');
 
 const fillData = async (req,res) => {
-    console.log(req.file);
+    //console.log(req.file);
     // capture data and parse it
     const file = fs.createReadStream(req.file.path);
     papa.parse(file, {
@@ -50,7 +50,7 @@ const fillData = async (req,res) => {
                 //console.log(tempArray);
                 itemList.push(tempArray);
             }
-            console.log(itemList);
+            //console.log(itemList);
             // console.log(nameList);
             //now adding enteries
             const idArr = Array.from(idList);
@@ -75,7 +75,7 @@ const fillData = async (req,res) => {
                 });
                 totalArr[i] = amount.toFixed(2);
             }
-            res.render(path.join(__dirname,'..','views','index.ejs'),{name : nameArr,order : idArr ,price : totalArr});
+            res.render(path.join(__dirname,'..','views','index.ejs'),{nameArr : nameArr,idArr : idArr ,totalArr : totalArr});
         }
     });
 }

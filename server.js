@@ -23,6 +23,7 @@ app.set('views', 'views');
 app.use('/', upload.single('csv'), require('./routes/root'));
 
 app.post('/upload', require('./routes/upload'));
+app.post('/invoice', require('./routes/invoice'));
 
 
 mongoose.connection.once('open', () => {
