@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" />
-    <script href="script.js"></script>
-    <script type="text/javascript" src=" papaparse.min.js"></script>
+    <!-- <script src="script.js" defer></script> -->
     <title>Mart</title>
 </head>
 <body>
@@ -19,7 +18,7 @@
         </form>
         <div clas="main">
             <h2>Upload File to view</h2>
-            <% if (idArr) { %>
+            <% if (idArr !== false) { %>
                 <table>
                     <tr>
                         <th>Order ID</th>
@@ -32,10 +31,18 @@
                         <td><%= idArr[i] %></td>
                         <td><%= nameArr[i] %></td>
                         <td><%= totalArr[i] %></td>
-                        <td><button>View</button></td>
+                        <td>
+                            <form action="/invoice/<%= idArr[i] %>" method="get" enctype="application/json">
+                                <button type="submit" id="invoice">View</button>
+                            </form>
+                        </td>
                     </tr>
                     <% } %>
                  </table>
+            <% } else if(invoice) { %>
+                <div>
+                    <%= invoice %>
+                </div>
             <% } %>
         </div>
     </section>

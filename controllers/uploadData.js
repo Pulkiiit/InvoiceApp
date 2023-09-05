@@ -58,12 +58,19 @@ const fillData = async (req,res) => {
             const dateArr = Array.from(dateList);
             // console.log(idArr);
             for (let i = 0; i < idArr.length; i++){
-                const a = await Bill.create({
-                    customername: nameArr[i],
-                    orderid: idArr[i],
-                    orderdate: dateArr[i],
-                    items : itemList[i]
-                });
+                const found = await Bill.find({ orderid: idArr[i] });
+                if (!found){
+                    const a = await Bill.create({
+                        customername: nameArr[i],
+                        orderid: idArr[i],
+                        orderdate: dateArr[i],
+                        items : itemList[i]
+                    });
+                }
+                else {
+                    continue;
+                }
+                
             }
             const totalArr = [];
             for (let i = 0; i < idArr.length; i++){
