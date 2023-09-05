@@ -59,7 +59,7 @@ const fillData = async (req,res) => {
             // console.log(idArr);
             for (let i = 0; i < idArr.length; i++){
                 const found = await Bill.find({ orderid: idArr[i] });
-                if (!found){
+                if (!found.orderid){
                     const a = await Bill.create({
                         customername: nameArr[i],
                         orderid: idArr[i],

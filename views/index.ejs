@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/style.css" />
     <!-- <script src="script.js" defer></script> -->
     <title>Mart</title>
 </head>
@@ -16,7 +16,7 @@
             <input type="file" id="csv" name="csv">
             <input type="submit" id="submit">
         </form>
-        <div clas="main">
+        <div clas="list">
             <h2>Upload File to view</h2>
             <% if (idArr !== false) { %>
                 <table>
@@ -40,8 +40,27 @@
                     <% } %>
                  </table>
             <% } else if(invoice) { %>
-                <div>
-                    <%= invoice %>
+                <div class="invoice">
+                    <table>
+                        <tr>
+                            <th>S. No.</th>
+                            <th>Item</th>
+                            <th>Price</th>
+                        </tr>
+                        <% let total = 0 %>
+                        <% invoice[0].items.forEach(element => { %>
+                            <tr>
+                                <td><%= element.name %></td>
+                                <td><%= element.quantity %></td>
+                                <td><%= element.price %></td>
+                            </tr>
+                            <% total+=element.price * element.quantity %>
+                        <% }) %>
+                        <tr>
+                            <td colspan="2">Total Amount</td>
+                            <td><%= total %></td>
+                        </tr>
+                    </table>
                 </div>
             <% } %>
         </div>
