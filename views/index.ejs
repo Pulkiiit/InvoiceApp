@@ -39,30 +39,7 @@
                     </tr>
                     <% } %>
                  </table>
-            <% } else if(invoice) { %>
-                <div class="invoice">
-                    <table>
-                        <tr>
-                            <th>S. No.</th>
-                            <th>Item</th>
-                            <th>Price</th>
-                        </tr>
-                        <% let total = 0 %>
-                        <% invoice[0].items.forEach(element => { %>
-                            <tr>
-                                <td><%= element.name %></td>
-                                <td><%= element.quantity %></td>
-                                <td><%= element.price %></td>
-                            </tr>
-                            <% total+=element.price * element.quantity %>
-                        <% }) %>
-                        <tr>
-                            <td colspan="2">Total Amount</td>
-                            <td><%= total %></td>
-                        </tr>
-                    </table>
-                </div>
-            <% } %>
+                 <% } %>
         </div>
     </section>
 </body>

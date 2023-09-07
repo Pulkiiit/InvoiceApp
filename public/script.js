@@ -1,12 +1,10 @@
-// const getInvoice = async (id) => {
-//     const res = await fetch("/invoice", {
-//         method: "GET",
-//         headers: {
-//             "Content-type": "application/json"
-//         },
-//         body: JSON.stringify({
-//             id: id
-//         })
-//     });
-//     console.log(await res.json());
-// }
+document.getElementById('download').addEventListener('click', async () => {
+    const url = window.location.href;
+    const response = await fetch('/download-invoice', {
+        method: 'POST',
+        headers: {
+            'Content-Type' : 'application/json'
+        },
+        body : JSON.stringify({url})
+    })
+})

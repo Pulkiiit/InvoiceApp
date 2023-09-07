@@ -8,6 +8,8 @@ const papa = require('papaparse');
 const connectDB = require('./config/dbConn');
 const multer = require('multer');
 const upload = multer({ dest: 'uploads/' });
+const puppeteer = require('puppeteer');
+
 
 const PORT = process.env.PORT;
 
@@ -24,6 +26,7 @@ app.use('/', upload.single('csv'), require('./routes/root'));
 
 app.post('/upload', require('./routes/upload'));
 app.use('/invoice', require('./routes/invoice'));
+app.use('/download-invoice', require('./routes/download'));
 
 
 mongoose.connection.once('open', () => {

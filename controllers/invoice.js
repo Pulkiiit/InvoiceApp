@@ -7,8 +7,7 @@ const generateInvoice = async (req, res) => {
     //console.log(req.params);
     const invoice = await Bill.find({ orderid: `${req.params.id}` }).exec();
     //console.log(invoice);
-    res.render(path.join(__dirname, '..', 'views', 'index.ejs'), {
-        idArr: false,
+    res.render(path.join(__dirname, '..', 'views', 'invoice.ejs'), {
         invoice: invoice
     });
 };
