@@ -82,7 +82,7 @@ const fillData = async (req,res) => {
                 });
                 totalArr[i] = amount.toFixed(2);
             }
-            res.render(path.join(__dirname,'..','views','index.ejs'),{nameArr : nameArr,idArr : idArr ,totalArr : totalArr});
+            res.render(path.join(__dirname,'..','views','index.ejs'),{nameArr : nameArr,idArr : idArr ,totalArr : totalArr,filename : req.file.originalname});
         }
     });
 }
